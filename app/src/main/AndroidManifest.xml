@@ -13,6 +13,7 @@
     </queries>
 
     <application
+        android:enableOnBackInvokedCallback="false"
         android:label="Lite Launcher"
         android:icon="@drawable/ic_launcher"
         android:allowBackup="false"
