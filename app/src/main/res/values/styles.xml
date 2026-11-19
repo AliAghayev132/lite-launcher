@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="LauncherTheme" parent="android:Theme.Material.Wallpaper.NoTitleBar">
+        <item name="android:windowShowWallpaper">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:colorAccent">#FFFFFFFF</item>
+        <item name="android:popupMenuStyle">@style/FlatPopup</item>
+    </style>
+
+    <!-- Düz (künc radiusu olmayan) menyu -->
+    <style name="FlatPopup" parent="android:Widget.Material.PopupMenu">
+        <item name="android:popupBackground">@drawable/flat_bg</item>
+        <item name="android:popupElevation">2dp</item>
+    </style>
+
+    <!-- Düz, sadə dialoq -->
+    <style name="FlatDialog" parent="android:Theme.Material.Dialog.Alert">
+        <item name="android:windowBackground">@drawable/flat_dialog_bg</item>
+        <item name="android:colorAccent">#FF4FC3F7</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:popupMenuStyle">@style/FlatPopup</item>
+    </style>
+</resources>

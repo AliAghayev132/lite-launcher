@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <az.lite.launcher.Pager
+        android:id="@+id/pager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- 0: vidcetlər (soldakı səhifə) -->
+        <ScrollView
+            android:id="@+id/page_widgets"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#B3000000"
+            android:fillViewport="true"
+            android:overScrollMode="never"
+            android:scrollbars="none">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="14dp"
+                android:paddingTop="20dp"
+                android:paddingRight="14dp"
+                android:paddingBottom="40dp">
+
+                <TextView
+                    android:id="@+id/widgets_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif"
+                    android:paddingBottom="14dp"
+                    android:text="Vidcetlər"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="26sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:id="@+id/widget_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+
+                <TextView
+                    android:id="@+id/widget_hint"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="16dp"
+                    android:text="Hələ vidcet yoxdur. Vidcetə uzun bas → sil və ya yerini dəyiş."
+                    android:textColor="#FF9A9A9A"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/widget_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:background="#FFFFD60A"
+                    android:fontFamily="sans-serif"
+                    android:gravity="center"
+                    android:letterSpacing="0.06"
+                    android:text="+  VİDCET ƏLAVƏ ET"
+                    android:textColor="#FF000000"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </ScrollView>
+
+        <!-- 1: ana ekran (sərbəst xanalar) -->
+        <FrameLayout
+            android:id="@+id/page_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <az.lite.launcher.HomeGrid
+                android:id="@+id/home_grid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingLeft="8dp"
+                android:paddingTop="16dp"
+                android:paddingRight="8dp"
+                android:paddingBottom="24dp" />
+
+            <TextView
+                android:id="@+id/home_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#CC121212"
+                android:gravity="center"
+                android:lineSpacingExtra="6dp"
+                android:padding="16dp"
+                android:text="Boş xanaya uzun bas → qovluq və ya tətbiq\nSağa sürüşdür → vidcetlər\nSola sürüşdür → bütün tətbiqlər"
+                android:textColor="#FFFFFFFF"
+                android:textSize="14sp" />
+        </FrameLayout>
+
+        <!-- 2: axtarış + bütün tətbiqlər -->
+        <LinearLayout
+            android:id="@+id/page_apps"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#E6101010"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:paddingLeft="12dp"
+            android:paddingRight="12dp">
+
+            <EditText
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="12dp"
+                android:background="@drawable/search_bg"
+                android:fontFamily="sans-serif-medium"
+                android:hint="Axtar…"
+                android:imeOptions="actionGo|flagNoExtractUi"
+                android:inputType="text|textNoSuggestions"
+                android:maxLines="1"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:textColor="#FFFFFFFF"
+                android:textColorHint="#FF9A9A9A"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/calc_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="12dp"
+                android:background="#FF1F1F1F"
+                android:fontFamily="sans-serif-medium"
+                android:paddingLeft="16dp"
+                android:paddingTop="12dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="12dp"
+                android:textColor="#FFFFD60A"
+                android:textSize="26sp"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/top_apps"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/top_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="4dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:letterSpacing="0.08"
+                    android:text="ƏN ÇOX AÇILANLAR"
+                    android:textColor="#FF9A9A9A"
+                    android:textSize="11sp" />
+
+                <LinearLayout
+                    android:id="@+id/top_row"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="#FF333333" />
+            </LinearLayout>
+
+            <GridView
+                android:id="@+id/app_grid"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:clipToPadding="false"
+                android:horizontalSpacing="4dp"
+                android:listSelector="@android:color/transparent"
+                android:numColumns="4"
+                android:overScrollMode="never"
+                android:paddingBottom="28dp"
+                android:scrollbars="none"
+                android:stretchMode="columnWidth"
+                android:verticalSpacing="10dp" />
+        </LinearLayout>
+    </az.lite.launcher.Pager>
+
+    <LinearLayout
+        android:id="@+id/dots"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal" />
+</FrameLayout>
